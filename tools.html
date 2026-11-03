@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arfan Uddin Hamza | Tools</title>
+<meta name="description" content="Tools used for data entry and lead generation: Google Sheets, Airtable, Apollo.io, Snov.io, iLovePDF and more.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📊</text></svg>">
+<style>
+:root{--ink:#1f2933;--mute:#5b6773;--grid:#d5dbe1;--paper:#fff;--bg:#f3f5f7;--yellow:#ffe14d;--green:#188038;--gl:#e6f4ea}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--green)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 18px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0;font-weight:600}
+nav a{text-decoration:none;color:var(--ink);font-weight:500;margin-left:18px}
+.sheet{display:grid;grid-template-columns:40px repeat(3,1fr);background:var(--paper);border:1px solid var(--grid);border-radius:6px;overflow:hidden}
+.sheet>*{border-right:1px solid var(--grid);border-bottom:1px solid var(--grid);padding:6px 12px;min-width:0}
+.sheet .h{background:#eef1f4;color:var(--mute);font-size:13px;text-align:center;padding:3px}
+.sheet .r{background:#eef1f4;color:var(--mute);font-size:13px;text-align:center;padding:12px 0}
+.sheet .t{grid-column:2/5;background:var(--yellow);padding:26px 20px 22px}
+.sheet h1{margin:0;font-size:clamp(1.9rem,5.6vw,3.5rem);line-height:1.08;letter-spacing:-.025em}
+.sheet .p{grid-column:2/5;padding:18px 20px;max-width:none;color:var(--mute)}
+.sheet .p span{display:block;max-width:60ch}
+.sheet .s{padding:16px 20px}.sheet .s b{display:block;font-size:2rem;line-height:1.1;color:var(--green)}.sheet .s small{color:var(--mute)}
+.sheet>:nth-last-child(-n+3){border-bottom:0}
+main h2{margin:56px 0 6px;font-size:1.5rem;letter-spacing:-.01em}
+.lead{margin:0 0 20px;color:var(--mute);max-width:62ch}
+.proj{background:var(--paper);border:1px solid var(--grid);border-radius:6px;margin-bottom:22px;overflow:hidden}
+.proj header{display:flex;justify-content:space-between;gap:12px;align-items:center;background:var(--yellow);padding:12px 18px}
+.proj h3{margin:0;font-size:1.1rem;line-height:1.3}
+.tag{background:var(--ink);color:#fff;border-radius:99px;padding:2px 12px;font-size:13px;white-space:nowrap}
+.body{padding:16px 18px 6px}
+.body p{margin:0 0 12px;max-width:68ch}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px;padding:0;list-style:none}
+.chips li{border:1px solid var(--grid);border-radius:4px;padding:1px 9px;font-size:13px;background:#fafbfc}
+.chips li.x{background:var(--gl);border-color:#b7dfc2;color:#0d5a26}
+.shots{display:flex;gap:12px;overflow-x:auto;padding:4px 18px 18px}
+.shots button{flex:0 0 auto;border:1px solid var(--grid);border-radius:4px;padding:0;background:#fff;cursor:zoom-in;overflow:hidden}
+.shots img{display:block;height:210px;width:auto}
+.shots button:focus-visible,a:focus-visible,.close:focus-visible{outline:3px solid var(--green);outline-offset:2px}
+.note{background:var(--gl);border:1px solid #b7dfc2;border-radius:6px;padding:14px 18px;margin-top:28px;max-width:70ch}
+.contact{background:var(--ink);color:#fff;border-radius:6px;padding:30px 24px;margin:56px 0 40px}
+.contact h2{margin:0 0 8px}.contact a{color:var(--yellow)}.contact p{margin:4px 0}
+footer{color:var(--mute);font-size:14px;padding-bottom:30px}
+#lb{position:fixed;inset:0;background:rgba(15,20,25,.9);display:none;align-items:center;justify-content:center;padding:16px;z-index:9}
+#lb.on{display:flex}#lb img{max-width:100%;max-height:100%;background:#fff;border-radius:4px}
+.close{position:absolute;top:12px;right:14px;background:#fff;border:0;border-radius:4px;font-size:18px;padding:4px 12px;cursor:pointer}
+@media(max-width:640px){.sheet{grid-template-columns:30px 1fr}.sheet .h:nth-child(n+3),.sheet .s{display:none}.sheet .t,.sheet .p{grid-column:2}.sheet .s:first-of-type{display:block}.shots img{height:160px}nav a{margin-left:12px}}
+
+.hero{display:grid;grid-template-columns:240px 1fr;gap:34px;align-items:center;padding:14px 0 30px}
+.photo{width:240px;height:auto;aspect-ratio:1/1.1;object-fit:cover;border-radius:10px;border:1px solid var(--grid);box-shadow:10px 10px 0 var(--yellow)}
+.hero h1{margin:0;font-size:clamp(2.2rem,6vw,3.8rem);line-height:1.04;letter-spacing:-.03em}
+.role{display:inline-block;background:var(--yellow);margin:14px 0 0;padding:4px 14px;font-weight:700;border:1px solid #e6c800}
+.slogan{margin:12px 0 0;font-size:1.15rem;font-style:italic;font-weight:600}.btn.alt{background:var(--yellow);color:var(--ink);border:1.5px solid #e6c800}
+.sum{margin:12px 0 0;color:var(--mute);max-width:56ch}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0 0}
+.btn{display:inline-block;background:var(--ink);color:#fff;text-decoration:none;padding:11px 20px;border-radius:6px;font-weight:600}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);background:var(--paper);border:1px solid var(--grid);border-radius:6px;overflow:hidden}
+.stats div{padding:16px 20px;border-right:1px solid var(--grid)}.stats div:last-child{border:0}
+.stats b{display:block;font-size:1.9rem;line-height:1.1;color:var(--green)}.stats small{color:var(--mute)}
+.qa{background:var(--paper);border:1px solid var(--grid);border-radius:6px;overflow:hidden}
+.qa div{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.7fr);gap:20px;padding:16px 20px;border-bottom:1px solid var(--grid)}.qa div:last-child{border:0}
+.qa h3{margin:0;font-size:1.02rem}.qa p{margin:0;color:var(--mute)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.card{background:var(--paper);border:1px solid var(--grid);border-radius:6px;padding:18px 20px}
+.card h3{margin:0 0 10px;font-size:1.1rem}.card ul{margin:0;padding-left:18px}.card li{margin:5px 0}.card p{margin:0 0 10px}
+.card small{color:var(--mute)}
+.svc{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin:0 0 22px}
+.svc div{background:var(--paper);border:1px solid var(--grid);border-left:5px solid var(--yellow);border-radius:6px;padding:12px 16px}
+.svc b{display:block}.svc span{color:var(--mute);font-size:14.5px}
+.contact{text-align:center}.contact h2{font-size:1.8rem}
+.cbs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:22px 0 14px}
+.cb{display:block;text-decoration:none;color:#fff!important;border-radius:8px;padding:16px 14px;text-align:left}
+.cb b{display:block;font-size:1.15rem}.cb span{display:block;font-size:14px;opacity:.92;overflow-wrap:anywhere}
+.cb.wa{background:#1a8f4a}.cb.li{background:#0a66c2}.cb.em{background:#ffe14d;color:var(--ink)!important}
+.cb:focus-visible{outline:3px solid #fff;outline-offset:2px}
+@media(max-width:700px){.hero{grid-template-columns:1fr;gap:24px}.photo{width:200px}.qa div,.two{grid-template-columns:1fr}.cbs{grid-template-columns:1fr}.stats b{font-size:1.5rem}.stats div{padding:12px}}
+.tl{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:0 0 22px}.tl .card{padding:14px 16px}.tl .card h3{font-size:1rem}.tl .chips{margin:0}.tl .chips li{font-size:14.5px;padding:3px 10px;background:var(--gl);border-color:#b7dfc2}
+.tl{display:block;background:var(--paper);border:1px solid var(--grid);border-radius:6px;overflow:hidden;margin:0 0 22px}
+.tl>div{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.4fr);gap:20px;align-items:center;padding:14px 20px;border-bottom:1px solid var(--grid)}.tl>div:last-child{border:0}
+.tl h3{margin:0;font-size:1rem}.tl .chips{margin:0;padding:0}.tl .chips li{font-size:14.5px;padding:3px 11px;background:var(--gl);border-color:#b7dfc2}
+@media(max-width:700px){.tl>div{grid-template-columns:1fr;gap:8px}nav a{margin-left:9px;font-size:14px}}
+.brand{margin-left:0!important;font-weight:700}nav a[aria-current]{border-bottom:3px solid var(--yellow);padding-bottom:2px}
+.ph h1{font-size:clamp(2rem,5vw,3rem);margin:30px 0 6px;letter-spacing:-.025em;line-height:1.1}.ph .lead{margin:0 0 26px}
+.go{display:flex;gap:10px;flex-wrap:wrap;margin:30px 0 0}
+@media(max-width:700px){nav{flex-wrap:wrap;gap:8px 10px}}
+</style></head><body>
+<div class="wrap">
+<nav><a class="brand" href="index.html">Arfan Uddin Hamza</a><span><a href="index.html">Home</a><a href="portfolio.html">Portfolio</a><a href="tools.html" aria-current="page">Tools</a><a href="#contact">Contact</a></span></nav>
+<header class="ph"><h1>Tools I use</h1><p class="lead">The tools I use to collect, clean and deliver data.</p></header>
+
+<div class="tl">
+<div><h3>Spreadsheets and databases</h3><ul class="chips"><li>Google Sheets</li><li>MS Excel</li><li>Airtable</li><li>Other spreadsheet tools</li></ul></div>
+<div><h3>Documents</h3><ul class="chips"><li>Word</li><li>Google Docs</li></ul></div>
+<div><h3>PDF</h3><ul class="chips"><li>PDF editor</li><li>iLovePDF</li><li>PDF to Excel or Word conversion</li></ul></div>
+<div><h3>Lead generation</h3><ul class="chips"><li>Apollo.io</li><li>Snov.io</li><li>LinkedIn</li></ul></div>
+<div><h3>Research sources</h3><ul class="chips"><li>Amazon</li><li>Etsy</li><li>eBay</li><li>Alibaba</li><li>Web research</li></ul></div>
+</div>
+<p class="go"><a class="btn" href="portfolio.html">See the work done with these tools</a><a class="btn ghost" href="index.html">Back to home</a></p>
+<section class="contact" id="contact">
+<h2>Let’s work together</h2>
+<p>Tap a button to reach me in one click.</p>
+<div class="cbs">
+<a class="cb wa" href="https://wa.me/8801934910807" target="_blank" rel="noopener"><b>WhatsApp</b><span>+880 1934 910807</span></a>
+<a class="cb li" href="https://www.linkedin.com/in/arfan-uddin-hamza-166136153/" target="_blank" rel="noopener"><b>LinkedIn</b><span>Arfan Uddin Hamza</span></a>
+<a class="cb em" href="mailto:arfantuad495703@gmail.com"><b>Email</b><span>arfantuad495703@gmail.com</span></a>
+</div>
+<p>Based in Savar, Dhaka, Bangladesh. Works remotely.</p>
+</section>
+<footer>Arfan Uddin Hamza. Accurate data. Better business. Screenshots are shown with contact details blurred.</footer>
+</div>
+</body></html>
